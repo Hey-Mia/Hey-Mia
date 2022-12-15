@@ -4,6 +4,7 @@ import pywhatkit
 import random
 from datetime import datetime
 import os
+import pyjokes
 
 
 engine = pyttsx3.init()
@@ -56,6 +57,8 @@ while loop1==True:
                 song = command.replace('play', '')
                 speak('playing ' + song)
                 pywhatkit.playonyt(song)
+            if 'joke' in command:
+                speak(pyjokes.get_joke())
             if 'time' in command:
                 now = datetime.now()
                 current_time = now.strftime("%H:%M:%S")
