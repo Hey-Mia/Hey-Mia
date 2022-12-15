@@ -11,11 +11,11 @@ engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-
-
+    engine.setProperty('rate', 250)
 
 def takeCommand():
      
@@ -26,7 +26,6 @@ def takeCommand():
         print("Aktualne Posloucham okoli..")
         r.pause_threshold = 1
         audio = r.listen(source)
-  
     try:
         print("Vyhodnocovani")   
         query = r.recognize_google(audio, language ='en-in')
